@@ -34,13 +34,9 @@ object DisplayManager {
     private val STANDARD_HEIGHT = 1920
 
 
-    fun getScreenWidth(): Int? {
-        return screenWidth
-    }
+    fun getScreenWidth(): Int? = screenWidth
 
-    fun getScreenHeight(): Int? {
-        return screenHeight
-    }
+    fun getScreenHeight(): Int? = screenHeight
 
 
     /**
@@ -48,9 +44,7 @@ object DisplayManager {
      * @param size
      * @return
      */
-    fun getPaintSize(size: Int): Int? {
-        return getRealHeight(size)
-    }
+    fun getPaintSize(size: Int): Int? = getRealHeight(size)
 
     /**
      * 输入UI图的尺寸，输出实际的px
@@ -58,10 +52,8 @@ object DisplayManager {
      * @param px ui图中的大小
      * @return
      */
-    fun getRealWidth(px: Int): Int? {
-        //ui图的宽度
-        return getRealWidth(px, STANDARD_WIDTH.toFloat())
-    }
+    fun getRealWidth(px: Int): Int? =//ui图的宽度
+            getRealWidth(px, STANDARD_WIDTH.toFloat())
 
     /**
      * 输入UI图的尺寸，输出实际的px,第二个参数是父布局
@@ -70,9 +62,8 @@ object DisplayManager {
      * @param parentWidth 父view在ui图中的高度
      * @return
      */
-    fun getRealWidth(px: Int, parentWidth: Float): Int? {
-        return (px / parentWidth * getScreenWidth()!!).toInt()
-    }
+    private fun getRealWidth(px: Int, parentWidth: Float): Int? =
+            (px / parentWidth * getScreenWidth()!!).toInt()
 
     /**
      * 输入UI图的尺寸，输出实际的px
@@ -80,10 +71,8 @@ object DisplayManager {
      * @param px ui图中的大小
      * @return
      */
-    fun getRealHeight(px: Int): Int? {
-        //ui图的宽度
-        return getRealHeight(px, STANDARD_HEIGHT.toFloat())
-    }
+    private fun getRealHeight(px: Int): Int? =//ui图的宽度
+            getRealHeight(px, STANDARD_HEIGHT.toFloat())
 
     /**
      * 输入UI图的尺寸，输出实际的px,第二个参数是父布局
@@ -92,9 +81,8 @@ object DisplayManager {
      * @param parentHeight 父view在ui图中的高度
      * @return
      */
-    fun getRealHeight(px: Int, parentHeight: Float): Int? {
-        return (px / parentHeight * getScreenHeight()!!).toInt()
-    }
+    private fun getRealHeight(px: Int, parentHeight: Float): Int? =
+            (px / parentHeight * getScreenHeight()!!).toInt()
 
     /**
      * dip转px

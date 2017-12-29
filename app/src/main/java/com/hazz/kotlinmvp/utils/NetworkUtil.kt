@@ -14,7 +14,7 @@ import java.net.URL
 /**
  * Created by xuhao on 2017/11/13.
  */
-class NetworkUtil{
+class NetworkUtil {
 
     companion object {
 
@@ -35,6 +35,7 @@ class NetworkUtil{
                     Context.CONNECTIVITY_SERVICE) as ConnectivityManager
             val info = manager.activeNetworkInfo
             return !(null == info || !info.isAvailable)
+
         }
 
         /**
@@ -147,7 +148,6 @@ class NetworkUtil{
         }
 
     }
-
 
 
 }

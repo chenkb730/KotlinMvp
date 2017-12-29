@@ -31,16 +31,15 @@ class AppUtils private constructor() {
          * @return 当前版本Code
          */
         fun getVerCode(context: Context): Int {
-            var verCode = -1
-            try {
+            return try {
                 val packageName = context.packageName
-                verCode = context.packageManager
+                context.packageManager
                         .getPackageInfo(packageName, 0).versionCode
             } catch (e: PackageManager.NameNotFoundException) {
                 e.printStackTrace()
+                -1
             }
 
-            return verCode
         }
 
 
@@ -60,27 +59,26 @@ class AppUtils private constructor() {
          * @return 当前版本信息
          */
         fun getVerName(context: Context): String {
-            var verName = ""
-            try {
+            return try {
                 val packageName = context.packageName
-                verName = context.packageManager
+                context.packageManager
                         .getPackageInfo(packageName, 0).versionName
             } catch (e: PackageManager.NameNotFoundException) {
                 e.printStackTrace()
+                ""
             }
 
-            return verName
         }
 
 
-        @SuppressLint("PackageManagerGetSignatures")
-                /**
+        /**
          * 获取应用签名
          *
          * @param context 上下文
          * @param pkgName 包名
          * @return 返回应用的签名
          */
+        @SuppressLint("PackageManagerGetSignatures")
         fun getSign(context: Context, pkgName: String): String? {
             return try {
                 @SuppressLint("PackageManagerGetSignatures") val pis = context.packageManager
